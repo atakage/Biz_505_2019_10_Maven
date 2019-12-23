@@ -1,0 +1,18 @@
+메이븐 다운로드 폴더에서 확인
+C:\bizwork\apache-maven-3.6.2\bin\mvn.cmd
+
+
+시스템의 Path 정보에 mvn 환경변수 등록
+C:\oraclexe\app\oracle\product\11.2.0\server\bin;;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;%SystemRoot%\system32;%SystemRoot%;%SystemRoot%\System32\Wbem;%SYSTEMROOT%\System32\WindowsPowerShell\v1.0\;C:\Program Files\Git\cmd;C:\Program Files\Java\jdk1.8.0_221\bin;C:\bizwork\apache-maven-3.6.2\bin;
+
+
+
+
+오라클 ojdbc.jar를 POM 레파지토리에 저장
+mvn install:install-file -Dfile=C:\oraclexe\app\oracle\product\11.2.0\server\jdbc\lib\ojdbc6.jar -Dpackaging=jar -DgeneratePom=true -DgroupId=com.oracle -DartifactId=ojdbc6 -Dversion=11.2.0 -DlocalRepository=C:\bizwork\jdk_3rd\repo
+
+
+
+mvn install:install-file -Dfile=C:\bizwork\maven-project\MClasses-1.0GA.jar -Dpackaging=jar -DgeneratePom=true -DgroupId=com.biz -DartifactId=MClasses-1.0GA -Dversion=1.0.0
+
+

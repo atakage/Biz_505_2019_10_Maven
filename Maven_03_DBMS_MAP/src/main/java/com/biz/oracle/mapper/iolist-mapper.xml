@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.biz.oracle.mapper.IolistDao">
+
+	<resultMap type="Map" id="selectMapList">		<!--  DTO, VO를 생서하지 않고 Mapper에서 result 값 담을 Map을 선언하고 
+															SELECT된 결과를 Map에 담아 List로 얻어오기 위한 Code -->
+
+
+		<result column="IO_SEQ" property="IO_SEQ" />	<!--  컬럼 값은 SELECT된 projection 컬럼 명 -->
+		<result column="IO_DATE" property="IO_DATE" />	<!--  property는 변수명과 같은 역할이며 Map<>의 key로서 -->
+		<result column="IO_INOUT" property="IO_INOUT" /><!--  값을 getter할 때 사용하는 이름 -->
+		<result column="IO_QTY" property="IO_QTY" />		<!--  property는 사용할 대 문자열 형태이기 때문에 -->
+		<result column="IO_PRICE" property="IO_PRICE" /> <!-- All 대문자, 소문자 특별히 '_'를 추가해 명명 -->
+		<result column="IO_TOTAL" property="IO_TOTAL" />
+		<result column="IO_PCODE" property="IO_PCODE" />
+		<result column="IO_DCODE" property="IO_DCODE" />
+
+
+
+	</resultMap>
+
+
+
+	<select id="selectAll" resultMap="selectMapList">
+
+		SELECT IO_SEQ,
+		IO_DATE,
+		IO_INOUT,
+		IO_QTY,
+		IO_PRICE,
+		IO_TOTAL,
+		IO_PCODE,
+		IO_DCODE FROM tbl_iolist
+	</select>
+
+
+
+</mapper>
